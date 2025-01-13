@@ -131,8 +131,9 @@ nav ul li:hover {
 /*============================================================================================================*/
 
 .songIteamcontainer{
-  margin-top: 50px;
-  margin-left: 50px;
+  position: relative;
+    left: 15px; 
+    top: 10px;
 }
 
 .songItem{
@@ -188,9 +189,7 @@ nav ul li:hover {
     margin: 0 20px;
 }
 
-.card {
-    
-    margin-top: 20px;
+.mobile_card {
     width: 80%;
     background: black;
     border-radius: 35px;
@@ -207,7 +206,7 @@ nav ul li:hover {
     transition: all 0.6s ease-out;
     overflow: hidden;
 }
-  
+
 
 .btn1, .btn2, .btn3, .btn4 {
     position: absolute;
