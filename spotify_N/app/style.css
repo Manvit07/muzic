@@ -11,6 +11,9 @@ body{
     padding: 0;
 }
 
+/*============================================================================================================*/
+
+
 nav{
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -30,6 +33,8 @@ nav ul{
     user-select: none;
     animation: gradient-shift 5s ease-in-out infinite; /* Faster animation */
     background-size: 200% 200%; /* Gradient shift */
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),           
+           0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
 
 nav ul li {
@@ -37,6 +42,10 @@ nav ul li {
     color: white;
     font-size: 18px;
     cursor: pointer;
+}
+
+nav ul li:hover {
+    color: #1db954;
 }
 
 .brand img{
@@ -56,7 +65,7 @@ nav ul li {
     font-family: 'Roboto Condensed', sans-serif;
     display: flex;
     margin: 23px auto;
-    width: 80%;
+    width: 70%;
     border-radius: 10px;
     padding: 30px;
 }
@@ -121,26 +130,137 @@ nav ul li {
   
 /*============================================================================================================*/
 
+.songIteamcontainer{
+  margin-top: 50px;
+  margin-left: 50px;
+}
 
-.bottom{
-    position: sticky;
-    height: 100px;
-    color: white;
-    margin: auto;
-    bottom: 0;
+.songItem{
+    width: 100%;
+    height: 70px;
+    max-width: 90%;
+    background: #353535;
+    border-radius: 20px;
     display: flex;
-    width: 90%;
-    border-radius: 10px;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    position: relative;
-    background: linear-gradient(135deg, #1e1e24 10%, #050505 60%);
-    user-select: none;
-    animation: gradient-shift 5s ease-in-out infinite; /* Faster animation */
-    background-size: 200% 200%; /* Gradient shift */
+    margin: 10px auto;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
     box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),           
              0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.songItem:hover {
+    cursor: pointer;
+    transform: scale(1.09);
+}
+
+.songItem img{
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.textBox {
+    margin-left: 10px;
+    color: white;;
+}
+
+.textContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.h1 {
+    font-size: 16px;
+    font-weight: bold;
+}
+  
+.p {
+    font-size: 12px;
+    font-weight: lighter;
+}
+.songItem i{
+    font-size: 30px;
+    margin: 0 20px;
+}
+
+.card {
+    
+    margin-top: 20px;
+    width: 80%;
+    background: black;
+    border-radius: 35px;
+    border: 2px solid rgb(40, 40, 40);
+    padding: 7px;
+    position: relative;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.486);
+}
+  
+.card-int {
+    background-color: #212121;
+    height: 100%;
+    border-radius: 25px;
+    transition: all 0.6s ease-out;
+    overflow: hidden;
+}
+  
+
+.btn1, .btn2, .btn3, .btn4 {
+    position: absolute;
+    width: 2px;
+}
+  
+.btn1, .btn2, .btn3 {
+    height: 45px;
+    top: 30%;
+    right: -4px;
+    background-image: linear-gradient(to right, #111111, #222222, #333333, #464646, #595959);
+}
+  
+.btn2, .btn3 {
+    transform: scale(-1);
+    left: -4px;
+}
+  
+.btn2, .btn3 {
+    transform: scale(-1);
+    height: 30px;
+}
+  
+.btn2 {
+    top: 26%
+}
+  
+.btn3 {
+    top: 36%
+}
+  
+  
+/*============================================================================================================*/
+
+.bottom{
+  position: sticky;
+  height: 100px;
+  color: white;
+  margin: auto;
+  bottom: 0;
+  display: flex;
+  width: 90%;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: linear-gradient(135deg, #1e1e24 10%, #050505 60%);
+  user-select: none;
+  animation: gradient-shift 5s ease-in-out infinite; /* Faster animation */
+  background-size: 200% 200%; /* Gradient shift */
+  box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),           
+           0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
 
 .icon{
@@ -157,4 +277,13 @@ nav ul li {
     width: 80vw;
 }
 
+.animetion{
+    width: 360px;
+    height: 478px;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),
+                -15px -15px 30px rgb(60, 60, 60);
+}
 
+/*============================================================================================================*/
