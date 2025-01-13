@@ -131,9 +131,7 @@ nav ul li:hover {
 /*============================================================================================================*/
 
 .songIteamcontainer{
-  position: relative;
-    left: 15px; 
-    top: 10px;
+  transform: translate(10px, 25px);
 }
 
 .songItem{
@@ -194,19 +192,24 @@ nav ul li:hover {
     background: black;
     border-radius: 35px;
     border: 2px solid rgb(40, 40, 40);
-    padding: 7px;
+    padding: 10px;
     position: relative;
     box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.486);
 }
   
 .card-int {
     background-color: #212121;
-    height: 100%;
+    max-height: 600px;
     border-radius: 25px;
-    transition: all 0.6s ease-out;
     overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 1px;
 }
 
+.card-int::-webkit-scrollbar {
+  width: 0px; /* Adjust width to fit neatly inside */
+}
 
 .btn1, .btn2, .btn3, .btn4 {
     position: absolute;
