@@ -3,8 +3,57 @@
 
 
 body{
-    background-color: #212121;
+    width: 100%;
+    height: 100%;
+    /* control ize */
+    --u: 5px;
+    --c1: #ededee;
+    --c2: #000000;
+    --c3: #1e1e1e;
+    --gp: 50% / calc(var(--u) * 16.9) calc(var(--u) * 12.8);
+    background: conic-gradient(
+          from 122deg at 50% 85.15%,
+          var(--c2) 0 58deg,
+          var(--c3) 0 116deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      conic-gradient(from 122deg at 50% 72.5%, var(--c1) 0 116deg, #fff0 0 100%)
+        var(--gp),
+      conic-gradient(from 58deg at 82.85% 50%, var(--c3) 0 64deg, #fff0 0 100%)
+        var(--gp),
+      conic-gradient(
+          from 58deg at 66.87% 50%,
+          var(--c1) 0 64deg,
+          var(--c2) 0 130deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      conic-gradient(from 238deg at 17.15% 50%, var(--c2) 0 64deg, #fff0 0 100%)
+        var(--gp),
+      conic-gradient(
+          from 172deg at 33.13% 50%,
+          var(--c3) 0 66deg,
+          var(--c1) 0 130deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      linear-gradient(98deg, var(--c3) 0 15%, #fff0 calc(15% + 1px) 100%)
+        var(--gp),
+      linear-gradient(-98deg, var(--c2) 0 15%, #fff0 calc(15% + 1px) 100%)
+        var(--gp),
+      conic-gradient(
+          from -58deg at 50.25% 14.85%,
+          var(--c3) 0 58deg,
+          var(--c2) 0 116deg,
+          #fff0 0 100%
+        )
+        var(--gp),
+      conic-gradient(from -58deg at 50% 28.125%, var(--c1) 0 116deg, #fff0 0 100%)
+        var(--gp),
+      linear-gradient(90deg, var(--c2) 0 50%, var(--c3) 0 100%) var(--gp);
 }
+
 
 *{
     margin: 0;
@@ -63,7 +112,6 @@ nav ul li:hover {
     min-height: 70vh;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
-    display: flex;
     margin: 23px auto;
     width: 70%;
     border-radius: 10px;
@@ -130,118 +178,272 @@ nav ul li:hover {
   
 /*============================================================================================================*/
 
-.songIteamcontainer{
-  transform: translate(10px, 25px);
-}
-
-.songItem{
-    width: 100%;
-    height: 70px;
-    max-width: 90%;
-    background: #353535;
-    border-radius: 20px;
+/* Style for the song container */
+.songIteamcontainer {
+    height: 215px;
     display: flex;
-    align-items: center;
-    margin: 10px auto;
-    justify-content: space-between;
-    backdrop-filter: blur(10px);
-    transition: 0.5s ease-in-out;
-    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),           
-             0.3em 0.3em 1em rgba(0,0,0,0.3);
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    padding: 10px; /* Space between cards */
+    padding-bottom: 10px; /* Add padding to make scrollbar more distinct */
 }
 
+.songIteamcontainer::-webkit-scrollbar {
+    height: 0; /* Height of horizontal scrollbar */
+}
+
+.songIteamcontainer::-webkit-scrollbar-track {
+    background: transparent; /* Track background */
+}
+
+.songIteamcontainer::-webkit-scrollbar-thumb {
+    background: #1db954; /* Scrollbar thumb color */
+    border-radius: 5px;
+}
+
+.songIteamcontainer::-webkit-scrollbar-thumb:hover {
+    background: #17a74e; /* Hover effect for the scrollbar thumb */
+}
+
+/* Individual song items */
+.songItem {
+    place-items: center;
+    width: 200px;
+    height: 210px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    
+}
+.play-btn-wrapper i{
+    transform: translate(0px,50px);
+}
+
+/* Hover effect for .songItem */
 .songItem:hover {
     cursor: pointer;
-    transform: scale(1.09);
+    background: #353535;
 }
 
-.songItem img{
-    width: 50px;
-    height: 50px;
-    margin-left: 15px;
+/* Play button visibility logic */
+.songItem .play-btn {
+    font-size: 30px;
+    color: transparent; /* Hidden by default */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.songItem:hover .play-btn {
+    color: #1db954; /* Visible on hover */
+    transform: scale(1.2); /* Slightly enlarge */
+}
+
+/* Song item image */
+.songItem img {
+    margin-top: 10px;
+    width: 169px;
+    height: 125px;
     border-radius: 10px;
 }
 
+/* Center text in song items */
 .textBox {
-    margin-left: 10px;
-    color: white;;
-}
-
-.textContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    color: white;
+    display: grid;
+    place-items: center;
 }
 
 .h1 {
     font-size: 16px;
     font-weight: bold;
+    display: grid;
+    place-items: center;
 }
-  
+
 .p {
     font-size: 12px;
     font-weight: lighter;
-}
-.songItem i{
-    font-size: 30px;
-    margin: 0 20px;
+    display: grid;
+    place-items: center;
 }
 
-.mobile_card {
-    width: 80%;
-    background: black;
-    border-radius: 35px;
-    border: 2px solid rgb(40, 40, 40);
-    padding: 10px;
+  
+/*============================================================================================================*/
+
+.personal{
+    transform: translate(0,-30px);
+    display: flex;
+    padding: 20px;
     position: relative;
-    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.486);
-}
-  
-.card-int {
-    background-color: #212121;
-    max-height: 600px;
-    border-radius: 25px;
-    overflow: hidden;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin: 1px;
+    gap: 70%;
 }
 
-.card-int::-webkit-scrollbar {
-  width: 0px; /* Adjust width to fit neatly inside */
+.your_play_list .fevourite{
+    display: grid;
 }
 
-.btn1, .btn2, .btn3, .btn4 {
-    position: absolute;
-    width: 2px;
+/*============================================================================================================*/
+
+.songIteamcontainer_your_play_list{
+    padding: 20px;
+    height: 460px;
+    overflow-x: hidden; /* Enable horizontal scrolling */
+    overflow-y: auto; /* Disable vertical scrolling */
+    padding: 10px; /* Space between cards */
+    padding-bottom: 10px; /* Add padding to make scrollbar more distinct */
 }
-  
-.btn1, .btn2, .btn3 {
-    height: 45px;
-    top: 30%;
-    right: -4px;
-    background-image: linear-gradient(to right, #111111, #222222, #333333, #464646, #595959);
+
+.songIteamcontainer_your_play_list::-webkit-scrollbar {
+    width: 0;
 }
-  
-.btn2, .btn3 {
-    transform: scale(-1);
-    left: -4px;
+
+
+.songItem_your_play_list {
+    place-items: center;
+    width: 200px;
+    height: 210px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
+    flex-shrink: 0; /* Prevent cards from shrinking */
 }
-  
-.btn2, .btn3 {
-    transform: scale(-1);
-    height: 30px;
+
+.play-btn-wrapper i{
+    transform: translate(0px,50px);
 }
-  
-.btn2 {
-    top: 26%
+
+/* Hover effect for .songItem */
+.songItem_your_play_list:hover {
+    cursor: pointer;
+    background: #353535;
 }
-  
-.btn3 {
-    top: 36%
+
+/* Play button visibility logic */
+.songItem_your_play_list .play-btn {
+    font-size: 30px;
+    color: transparent; /* Hidden by default */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-  
-  
+
+.songItem_your_play_list:hover .play-btn {
+    color: #1db954; /* Visible on hover */
+    transform: scale(1.2); /* Slightly enlarge */
+}
+
+/* Song item image */
+.songItem_your_play_list img {
+    margin-top: 10px;
+    width: 169px;
+    height: 125px;
+    border-radius: 10px;
+}
+
+/* Center text in song items */
+.textBox {
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+.h1 {
+    font-size: 16px;
+    font-weight: bold;
+    display: grid;
+    place-items: center;
+}
+
+.p {
+    font-size: 12px;
+    font-weight: lighter;
+    display: grid;
+    place-items: center;
+}
+
+/*============================================================================================================*/
+
+.songIteamcontainer_fevourite{
+    padding: 20px;
+    height: 460px;
+    overflow-x: hidden; /* Enable horizontal scrolling */
+    overflow-y: auto; /* Disable vertical scrolling */
+    padding: 10px; /* Space between cards */
+    padding-bottom: 10px; /* Add padding to make scrollbar more distinct */
+}
+
+.songIteamcontainer_fevourite::-webkit-scrollbar {
+    width: 0; /* Height of horizontal scrollbar */
+}
+
+
+.songItem_fevourite {
+    place-items: center;
+    width: 200px;
+    height: 210px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    
+}
+
+.play-btn-wrapper i{
+    transform: translate(0px,50px);
+}
+
+/* Hover effect for .songItem */
+.songItem_fevourite:hover {
+    cursor: pointer;
+    background: #353535;
+}
+
+/* Play button visibility logic */
+.songItem_fevourite .play-btn {
+    font-size: 30px;
+    color: transparent; /* Hidden by default */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.songItem_fevourite:hover .play-btn {
+    color: #1db954; /* Visible on hover */
+    transform: scale(1.2); /* Slightly enlarge */
+}
+
+/* Song item image */
+.songItem_fevourite img {
+    margin-top: 10px;
+    width: 169px;
+    height: 125px;
+    border-radius: 10px;
+}
+
+/* Center text in song items */
+.textBox {
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+.h1 {
+    font-size: 16px;
+    font-weight: bold;
+    display: grid;
+    place-items: center;
+}
+
+.p {
+    font-size: 12px;
+    font-weight: lighter;
+    display: grid;
+    place-items: center;
+}
+
+
 /*============================================================================================================*/
 
 .bottom{
